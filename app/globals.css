@@ -1,0 +1,48 @@
+@import "tailwindcss";
+@config "../tailwind.config.ts";
+
+@layer base {
+  :root {
+    /* ── Brand palette from My Medical Centers logo ─────────────────── */
+    --surface:       #F7FBFD;
+    --surface-2:     #EBF4F8;
+    --ink:           #2D3A4A;
+    --ink-muted:     #5A6A7A;
+    --primary:       #5AAAC8;
+    --primary-hover: #4A98B8;
+    --primary-ink:   #FFFFFF;
+    --accent:        #2D3A4A;
+    --success:       #16A34A;
+    --border:        #CCE3EE;
+    --ring:          #5AAAC8;
+    --radius: 20px;
+
+    --background:         var(--surface);
+    --foreground:         var(--ink);
+    --card:               var(--surface);
+    --card-foreground:    var(--ink);
+    --popover:            var(--surface);
+    --popover-foreground: var(--ink);
+    --primary-foreground: var(--primary-ink);
+    --secondary:          var(--surface-2);
+    --secondary-foreground: var(--ink);
+    --muted:              var(--surface-2);
+    --muted-foreground:   var(--ink-muted);
+    --accent-foreground:  var(--accent);
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --input: var(--border);
+  }
+
+  * {
+    border-color: var(--border);
+  }
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+  ::selection {
+    background-color: var(--primary);
+    color: var(--primary-ink);
+  }
+}
