@@ -4,6 +4,7 @@ import './globals.css';
 import { SiteHeader } from '@/components/SiteHeader';
 import { SiteFooter } from '@/components/SiteFooter';
 import { MobileBookBar } from '@/components/MobileBookBar';
+import { ChatAssistant } from '@/components/ChatAssistant';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const interTight = Inter_Tight({ subsets: ['latin'], variable: '--font-inter-tight' });
@@ -26,6 +27,7 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
         <SiteFooter />
         <MobileBookBar />
+        <ChatAssistant />
       </body>
     </html>
   );

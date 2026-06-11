@@ -14,11 +14,13 @@ export default {
   			foreground: 'var(--foreground)',
   			surface: 'var(--surface)',
   			'surface-2': 'var(--surface-2)',
+  			'surface-3': 'var(--surface-3)',
   			ink: 'var(--ink)',
   			'ink-muted': 'var(--ink-muted)',
   			primary: {
   				DEFAULT: 'var(--primary)',
   				hover: 'var(--primary-hover)',
+  				deep: 'var(--primary-deep)',
   				ink: 'var(--primary-ink)'
   			},
   			accent: {
@@ -27,6 +29,7 @@ export default {
   			},
   			success: 'var(--success)',
   			border: 'var(--border)',
+  			'border-strong': 'var(--border-strong)',
             ring: 'var(--ring)'
   		},
   		fontFamily: {

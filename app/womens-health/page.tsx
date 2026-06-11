@@ -12,6 +12,7 @@ import {
   Stethoscope,
   ArrowRight,
   ChevronRight,
+  MapPin,
 } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -86,11 +87,12 @@ export default function WomensHealthPage() {
       {/* ── Page hero ──────────────────────────────────────────────────────── */}
       <section className="bg-ink text-surface py-24 md:py-32 relative overflow-hidden">
         <Image src="/hero-womens.png" alt="" fill className="object-cover object-center" priority aria-hidden="true" />
-        <div aria-hidden="true" className="absolute inset-0 bg-ink/78" />
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0" style={{ background: 'radial-gradient(ellipse 70% 70% at 90% 50%, rgba(217,116,74,0.12) 0%, transparent 60%), radial-gradient(ellipse 50% 60% at 10% 60%, rgba(90,170,200,0.15) 0%, transparent 70%)' }} />
+        <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-br from-ink/80 via-ink/65 to-ink/50" />
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0" style={{ background: 'radial-gradient(ellipse 70% 70% at 90% 50%, rgba(217,116,74,0.12) 0%, transparent 60%), radial-gradient(ellipse 50% 60% at 10% 60%, rgba(90,170,200,0.18) 0%, transparent 70%)' }} />
         <div className="container mx-auto max-w-7xl px-6 relative z-10">
-          <p className="text-sm font-semibold uppercase tracking-widest text-accent mb-4">
-            Women's Health
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary mb-4 flex items-center gap-2">
+            <span className="inline-block w-6 h-px bg-primary" />
+            Women&apos;s Health
           </p>
           <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl font-bold leading-tight text-surface mb-6">
             Care designed<br />around you.
@@ -127,7 +129,8 @@ export default function WomensHealthPage() {
       <section className="py-20 md:py-28 bg-surface">
         <div className="container mx-auto max-w-7xl px-6">
           <div className="max-w-xl mb-14">
-            <p className="text-sm font-semibold uppercase tracking-widest text-primary mb-3">
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary mb-4 flex items-center gap-2">
+              <span className="inline-block w-6 h-px bg-primary" />
               What we offer
             </p>
             <h2 className="font-serif text-4xl md:text-5xl font-bold text-ink leading-tight">
@@ -139,14 +142,14 @@ export default function WomensHealthPage() {
             {WOMENS_SERVICES.map(({ icon: Icon, title, body, referralRequired }) => (
               <div
                 key={title}
-                className="group rounded-2xl border border-border bg-surface p-7 hover:border-primary/30 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col gap-4"
+                className="group rounded-2xl border border-border bg-surface p-7 card-premium flex flex-col gap-4"
               >
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                  <Icon className="w-6 h-6 text-primary" />
+                <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/18 group-hover:scale-105 transition-all duration-300">
+                  <Icon className="w-7 h-7 text-primary" />
                 </div>
                 <div className="flex-1">
                   <div className="flex flex-wrap items-center gap-2 mb-2">
-                    <h3 className="font-semibold text-ink text-lg">{title}</h3>
+                    <h3 className="font-semibold text-ink text-lg group-hover:text-primary transition-colors duration-200">{title}</h3>
                     {referralRequired && (
                       <span className="text-xs font-semibold text-accent bg-accent/10 rounded-full px-2.5 py-0.5">
                         Referral required
@@ -165,11 +168,12 @@ export default function WomensHealthPage() {
       <section id="our-specialists" className="scroll-mt-24 py-20 md:py-28 bg-surface-2 border-t border-border">
         <div className="container mx-auto max-w-7xl px-6">
           <div className="max-w-xl mb-14">
-            <p className="text-sm font-semibold uppercase tracking-widest text-primary mb-3">
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary mb-4 flex items-center gap-2">
+              <span className="inline-block w-6 h-px bg-primary" />
               Our team
             </p>
             <h2 className="font-serif text-4xl md:text-5xl font-bold text-ink leading-tight">
-              Women's health specialists.
+              Women&apos;s health specialists.
             </h2>
           </div>
 
@@ -177,10 +181,10 @@ export default function WomensHealthPage() {
             {SPECIALISTS.map((spec) => (
               <div
                 key={spec.name}
-                className="rounded-2xl border border-border bg-surface p-8 flex gap-6 hover:border-primary/30 hover:shadow-md transition-all duration-300"
+                className="rounded-2xl border border-border bg-surface p-8 flex gap-6 card-premium"
               >
                 {/* Avatar */}
-                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center text-primary font-serif text-2xl font-bold shrink-0 select-none">
+                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center text-primary font-serif text-2xl font-bold shrink-0 select-none shadow-premium-sm">
                   {spec.name.split(' ').find(p => p.startsWith('Dr') || p.startsWith('RM'))
                     ? spec.name.split(' ').slice(1).find(p => !p.startsWith('Dr') && !p.startsWith('RM'))?.[0] ?? '?'
                     : spec.name[0]}
@@ -188,8 +192,8 @@ export default function WomensHealthPage() {
                 <div className="flex-1">
                   <h3 className="font-semibold text-ink text-lg leading-snug">{spec.name}</h3>
                   <p className="text-xs text-ink-muted mt-0.5 mb-1">{spec.credentials}</p>
-                  <span className="inline-flex items-center gap-1 text-xs font-semibold text-primary bg-primary/10 rounded-full px-2.5 py-0.5 mb-3">
-                    📍 {spec.location}
+                  <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary bg-primary/10 rounded-full px-2.5 py-0.5 mb-3">
+                    <MapPin className="w-3 h-3" /> {spec.location}
                   </span>
                   <p className="text-sm text-ink-muted leading-relaxed">{spec.bio}</p>
                 </div>
@@ -228,7 +232,10 @@ export default function WomensHealthPage() {
       </section>
 
       {/* ── CTA strip ──────────────────────────────────────────────────────── */}
-      <section className="bg-primary py-20 md:py-28">
+      <section
+        className="relative py-20 md:py-28 overflow-hidden"
+        style={{ background: 'linear-gradient(135deg, var(--primary-deep) 0%, var(--primary) 60%, #7BBCD8 100%)' }}
+      >
         <div className="container mx-auto max-w-7xl px-6 text-center">
           <h2 className="font-serif text-4xl md:text-5xl font-bold text-primary-ink mb-5">
             Ready to book?

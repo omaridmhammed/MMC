@@ -98,30 +98,28 @@ export default function ServicesPage() {
       {/* ── Page hero ──────────────────────────────────────────────────────── */}
       <section className="bg-ink text-surface py-24 md:py-32 relative overflow-hidden">
         <Image src="/hero-services.png" alt="" fill className="object-cover object-center" priority aria-hidden="true" />
-        <div aria-hidden="true" className="absolute inset-0 bg-ink/75" />
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0" style={{ background: 'radial-gradient(ellipse 60% 70% at 85% 50%, rgba(90,170,200,0.2) 0%, transparent 70%)' }} />
+        <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-br from-ink/80 via-ink/65 to-ink/50" />
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0" style={{ background: 'radial-gradient(ellipse 60% 70% at 85% 50%, rgba(90,170,200,0.22) 0%, transparent 70%)' }} />
         <div className="container mx-auto max-w-7xl px-6 relative z-10">
-          <p className="text-sm font-semibold uppercase tracking-widest text-primary mb-4">
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary mb-4 flex items-center gap-2">
+            <span className="inline-block w-6 h-px bg-primary" />
             What we offer
           </p>
           <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl font-bold leading-tight text-surface mb-6">
             Our services.
           </h1>
-          <p className="text-surface/70 text-lg max-w-xl leading-relaxed">
+          <p className="text-surface/65 text-lg max-w-xl leading-relaxed font-light">
             Comprehensive, compassionate care across family medicine, mental health, and specialist
             services — all under one roof in Ottawa.
           </p>
         </div>
-        <div
-          aria-hidden="true"
-          className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-surface to-transparent"
-        />
+        <div aria-hidden="true" className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-surface to-transparent" />
       </section>
 
       {/* ── Service detail cards ────────────────────────────────────────────── */}
       <section className="py-20 md:py-28 bg-surface">
         <div className="container mx-auto max-w-7xl px-6">
-          <div className="flex flex-col gap-8">
+          <div className="flex flex-col gap-6">
             {SERVICES.map((service) => {
               const Icon = SERVICE_ICONS[service.slug] ?? Stethoscope;
               const detail = SERVICE_DETAILS[service.slug];
@@ -129,11 +127,11 @@ export default function ServicesPage() {
                 <article
                   id={service.slug}
                   key={service.slug}
-                  className="scroll-mt-24 rounded-2xl border border-border bg-surface overflow-hidden hover:border-primary/30 hover:shadow-lg transition-all duration-300"
+                  className="scroll-mt-24 rounded-2xl border border-border bg-surface overflow-hidden card-premium"
                 >
                   {/* Card top bar */}
-                  <div className="flex items-start gap-6 p-8 pb-0">
-                    <div className="shrink-0 w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center">
+                  <div className="flex items-start gap-6 p-8 pb-6">
+                    <div className="shrink-0 w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center">
                       <Icon className="w-7 h-7 text-primary" />
                     </div>
                     <div className="flex-1 min-w-0">
@@ -153,10 +151,13 @@ export default function ServicesPage() {
                     </div>
                   </div>
 
+                  {/* Divider */}
+                  <div className="mx-8 h-px bg-border" />
+
                   {/* Card body */}
                   <div className="p-8 pt-6">
                     {detail?.body && (
-                      <div className="flex flex-col gap-3 mb-6">
+                      <div className="flex flex-col gap-4 mb-6">
                         {detail.body.map((para, i) => (
                           <p key={i} className="text-ink-muted leading-relaxed text-sm md:text-base">
                             {para}
@@ -164,38 +165,22 @@ export default function ServicesPage() {
                         ))}
                       </div>
                     )}
-
-                    {/* CTA */}
                     {!service.comingSoon && (
-                      <div className="flex flex-wrap gap-3 pt-2 border-t border-border">
+                      <div className="flex flex-wrap gap-3 pt-4 border-t border-border">
                         {service.slug === 'family-doctor' ? (
                           <Button
-                            render={
-                              <a
-                                href={LINKS.oceanRegistration}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                              />
-                            }
+                            render={<a href={LINKS.oceanRegistration} target="_blank" rel="noopener noreferrer" />}
                             size="sm"
-                            className="rounded-lg mt-4"
+                            className="rounded-lg btn-glow"
                           >
                             Register as a new patient <ArrowRight className="ml-1.5 w-3.5 h-3.5" />
                           </Button>
                         ) : service.slug === 'walk-in' ? (
-                          <Button
-                            render={<Link href="/locations" />}
-                            size="sm"
-                            className="rounded-lg mt-4"
-                          >
+                          <Button render={<Link href="/locations" />} size="sm" className="rounded-lg btn-glow">
                             Find a location <ArrowRight className="ml-1.5 w-3.5 h-3.5" />
                           </Button>
                         ) : (
-                          <Button
-                            render={<Link href="/book" />}
-                            size="sm"
-                            className="rounded-lg mt-4"
-                          >
+                          <Button render={<Link href="/book" />} size="sm" className="rounded-lg btn-glow">
                             Book a consultation <ArrowRight className="ml-1.5 w-3.5 h-3.5" />
                           </Button>
                         )}
@@ -210,12 +195,18 @@ export default function ServicesPage() {
       </section>
 
       {/* ── CTA strip ──────────────────────────────────────────────────────── */}
-      <section className="bg-primary py-20 md:py-28">
-        <div className="container mx-auto max-w-7xl px-6 text-center">
+      <section
+        className="relative py-20 md:py-28 overflow-hidden"
+        style={{ background: 'linear-gradient(135deg, var(--primary-deep) 0%, var(--primary) 60%, #7BBCD8 100%)' }}
+      >
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0"
+          style={{ background: 'radial-gradient(circle at 15% 50%, rgba(255,255,255,0.08) 0%, transparent 40%), radial-gradient(circle at 85% 30%, rgba(255,255,255,0.06) 0%, transparent 35%)' }}
+        />
+        <div className="container mx-auto max-w-7xl px-6 text-center relative z-10">
           <h2 className="font-serif text-4xl md:text-5xl font-bold text-primary-ink mb-5">
             Not sure where to start?
           </h2>
-          <p className="text-primary-ink/70 text-lg max-w-xl mx-auto mb-10">
+          <p className="text-primary-ink/70 text-lg max-w-xl mx-auto mb-10 font-light">
             Walk in during clinic hours or book a consultation online. Our team will help guide you
             to the right care.
           </p>
@@ -223,7 +214,7 @@ export default function ServicesPage() {
             <Button
               render={<Link href="/book" />}
               size="lg"
-              className="rounded-xl h-14 px-10 bg-surface text-ink hover:bg-surface-2 text-base font-semibold"
+              className="rounded-xl h-14 px-10 bg-surface text-ink hover:bg-surface-2 text-base font-bold shadow-premium-md"
             >
               Book or refer
             </Button>
@@ -231,7 +222,7 @@ export default function ServicesPage() {
               render={<Link href="/locations" />}
               variant="outline"
               size="lg"
-              className="rounded-xl h-14 px-10 border-primary-ink/30 text-primary-ink hover:bg-primary-ink/10 hover:text-primary-ink bg-transparent text-base"
+              className="rounded-xl h-14 px-10 border-primary-ink/30 text-primary-ink hover:bg-primary-ink/10 hover:text-primary-ink bg-transparent text-base font-semibold"
             >
               Find a location <ChevronRight className="ml-1 w-4 h-4" />
             </Button>

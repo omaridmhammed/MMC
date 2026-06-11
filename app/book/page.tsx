@@ -69,24 +69,22 @@ export default function BookPage() {
       {/* ── Page hero ──────────────────────────────────────────────────────── */}
       <section className="bg-ink text-surface py-24 md:py-32 relative overflow-hidden">
         <Image src="/hero-book.png" alt="" fill className="object-cover object-center" priority aria-hidden="true" />
-        <div aria-hidden="true" className="absolute inset-0 bg-ink/75" />
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0" style={{ background: 'radial-gradient(ellipse 60% 70% at 85% 50%, rgba(90,170,200,0.2) 0%, transparent 70%)' }} />
+        <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-br from-ink/80 via-ink/65 to-ink/50" />
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0" style={{ background: 'radial-gradient(ellipse 60% 70% at 85% 50%, rgba(90,170,200,0.22) 0%, transparent 70%)' }} />
         <div className="container mx-auto max-w-7xl px-6 relative z-10">
-          <p className="text-sm font-semibold uppercase tracking-widest text-primary mb-4">
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary mb-4 flex items-center gap-2">
+            <span className="inline-block w-6 h-px bg-primary" />
             Get started
           </p>
           <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl font-bold leading-tight text-surface mb-6">
             Book or refer.
           </h1>
-          <p className="text-surface/70 text-lg max-w-xl leading-relaxed">
+          <p className="text-surface/65 text-lg max-w-xl leading-relaxed font-light">
             Patients can book online or walk in. Physicians can refer patients directly via Ocean
             eReferral.
           </p>
         </div>
-        <div
-          aria-hidden="true"
-          className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-surface to-transparent"
-        />
+        <div aria-hidden="true" className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-surface to-transparent" />
       </section>
 
       {/* ── Option cards ────────────────────────────────────────────────────── */}
@@ -97,14 +95,14 @@ export default function BookPage() {
               <div
                 key={id}
                 id={id}
-                className="rounded-2xl border border-border bg-surface p-8 flex flex-col gap-6 hover:border-primary/30 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
+                className="rounded-2xl border border-border bg-surface p-8 flex flex-col gap-6 card-premium"
               >
                 {/* Label + icon */}
                 <div className="flex items-center justify-between">
-                  <span className="text-xs font-semibold uppercase tracking-widest text-primary">
+                  <span className="text-xs font-bold uppercase tracking-[0.14em] text-primary">
                     {label}
                   </span>
-                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                  <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center">
                     <Icon className="w-5 h-5 text-primary" />
                   </div>
                 </div>
@@ -167,9 +165,9 @@ export default function BookPage() {
       {/* ── Walk-in notice ──────────────────────────────────────────────────── */}
       <section className="bg-surface-2 border-t border-border py-16 md:py-20">
         <div className="container mx-auto max-w-7xl px-6">
-          <div className="rounded-2xl border border-border bg-surface p-8 md:p-12 flex flex-col md:flex-row items-start md:items-center gap-8">
-            <div className="w-16 h-16 rounded-2xl bg-accent/10 flex items-center justify-center shrink-0">
-              <Stethoscope className="w-8 h-8 text-accent" />
+          <div className="rounded-2xl border border-border bg-surface p-8 md:p-12 flex flex-col md:flex-row items-start md:items-center gap-8 card-premium">
+            <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0 shadow-premium-sm">
+              <Stethoscope className="w-8 h-8 text-primary" />
             </div>
             <div className="flex-1">
               <h2 className="font-serif text-2xl md:text-3xl font-bold text-ink mb-3">
