@@ -95,11 +95,11 @@ export default function HomePage() {
               rostering physicians, and specialist services all in one place.
             </p>
 
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-col sm:flex-row gap-4">
               <Button
                 render={<Link href="/book" />}
                 size="lg"
-                className="rounded-xl text-base h-14 px-8 btn-glow font-semibold"
+                className="rounded-xl text-base h-14 px-8 btn-glow font-semibold w-full sm:w-auto justify-center"
               >
                 Book or refer <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
@@ -107,7 +107,7 @@ export default function HomePage() {
                 render={<Link href="/locations" />}
                 variant="outline"
                 size="lg"
-                className="rounded-xl text-base h-14 px-8 border-surface/25 text-surface hover:bg-surface/12 hover:text-surface bg-transparent backdrop-blur-sm font-semibold"
+                className="rounded-xl text-base h-14 px-8 border-surface/25 text-surface hover:bg-surface/12 hover:text-surface bg-transparent backdrop-blur-sm font-semibold w-full sm:w-auto justify-center"
               >
                 Find a location
               </Button>
@@ -141,11 +141,11 @@ export default function HomePage() {
       {/* ── Stats bar ─────────────────────────────────────────────────────── */}
       <section className="bg-surface border-b border-border shadow-premium-xs">
         <div className="container mx-auto max-w-7xl px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-border">
+          <div className="grid grid-cols-2 md:grid-cols-4 border-l border-t border-border">
             {STATS.map(({ value, label, icon: Icon }, i) => (
               <div
                 key={label}
-                className="flex flex-col items-start gap-1.5 py-8 px-8 group hover:bg-surface-2/60 transition-colors duration-200"
+                className="flex flex-col items-start gap-1.5 py-8 px-8 group hover:bg-surface-2/60 transition-colors duration-200 border-r border-b border-border"
               >
                 <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center mb-2 group-hover:bg-primary/18 transition-colors">
                   <Icon className="w-4.5 h-4.5 text-primary" />

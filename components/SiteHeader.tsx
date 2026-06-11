@@ -30,8 +30,8 @@ export function SiteHeader() {
     <header
       className={`sticky top-0 z-50 w-full transition-all duration-300 ${
         isScrolled
-          ? 'h-20 bg-surface/92 backdrop-blur-xl border-b border-border/60 shadow-premium-sm'
-          : 'h-36 bg-transparent border-b border-transparent'
+          ? 'h-16 md:h-20 bg-surface/92 backdrop-blur-xl border-b border-border/60 shadow-premium-sm'
+          : 'h-20 md:h-36 bg-transparent border-b border-transparent'
       }`}
     >
       <div className="container mx-auto max-w-7xl px-6 h-full flex items-center justify-between">
@@ -42,7 +42,7 @@ export function SiteHeader() {
             width={260}
             height={78}
             className={`w-auto object-contain transition-all duration-300 ${
-              isScrolled ? 'h-14' : 'h-28'
+              isScrolled ? 'h-10 md:h-14' : 'h-12 md:h-28'
             }`}
             priority
           />

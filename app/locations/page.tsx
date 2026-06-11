@@ -138,8 +138,10 @@ export default function LocationsPage() {
                       </Button>
                     </div>
                   </div>
-                  <div className="relative min-h-72 lg:min-h-0 bg-surface-2">
-                    <iframe title={`Map for ${loc.name} clinic`} src={MAP_EMBEDS[loc.slug]} className="absolute inset-0 w-full h-full border-0" loading="lazy" referrerPolicy="no-referrer-when-downgrade" allowFullScreen />
+                  <div className="relative min-h-[320px] lg:min-h-0 bg-surface-2 p-4 lg:p-6 flex">
+                    <div className="relative w-full h-full min-h-[280px] lg:min-h-0 rounded-2xl overflow-hidden border border-border shadow-premium-sm">
+                      <iframe title={`Map for ${loc.name} clinic`} src={MAP_EMBEDS[loc.slug]} className="absolute inset-0 w-full h-full border-0" loading="lazy" referrerPolicy="no-referrer-when-downgrade" allowFullScreen />
+                    </div>
                   </div>
                 </div>
               </article>

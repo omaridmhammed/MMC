@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   MessageSquare,
@@ -30,6 +31,7 @@ const SUGGESTIONS = [
 ];
 
 export function ChatAssistant() {
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     {
@@ -171,8 +173,15 @@ export function ChatAssistant() {
     });
   };
 
+  const isBookPage = pathname === '/book';
+
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+    <div
+      className={cn(
+        "fixed right-6 z-50 flex flex-col items-end transition-all duration-300",
+        isBookPage ? "bottom-6" : "bottom-24 md:bottom-6"
+      )}
+    >
       {/* ── Chat Window Panel ──────────────────────────────────────────────── */}
       <AnimatePresence>
         {isOpen && (
